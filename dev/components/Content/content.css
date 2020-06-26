@@ -1,0 +1,55 @@
+.sbar input{
+	display: block;
+	width: 50%;
+	height: 30px;
+	margin: 40px auto;
+	border: 1px solid #cecece;
+	background: #E9E8E8;
+	border-radius: 8px;
+    left: 25%;
+    border: white 2px solid;
+}
+ .sbar input:focus { 
+ 	outline: none;
+ 	background: #F6F6f6;
+ 	border: 2px solid #DBD7D2;
+}
+
+
+  
+.sbar img {
+	display: block;
+	max-width: 850px;
+	margin: 40px auto;
+	border: white 2px solid;
+}
+
+.sbar p {
+	text-align: center;
+}
+
+.sbar h2 {
+	display: block;
+	margin: 40px auto;
+	cursor: pointer;
+	padding-top: 40px;
+	text-align: center;
+	
+	font-weight: 800;
+	text-decoration: underline;
+}
+
+.sbar a:hover {
+	color: #120A8F;
+}
+
+.lbar img {
+	display: block;
+	max-width: 50px;
+	margin: 40px auto;
+	
+}
+
+.lbar p {
+	text-align: center;
+}
