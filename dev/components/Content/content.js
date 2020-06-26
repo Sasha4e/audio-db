@@ -12,7 +12,6 @@ class Content extends Component {
 			value: '',
 			artists: [],
 			isLoading: false,
-			
 		}
 
 		this.handleChange = this.handleChange.bind(this);
