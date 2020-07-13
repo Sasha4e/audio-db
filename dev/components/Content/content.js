@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './content.css';
 import { getArtist } from '../../api/audiodb.js';
+import { getAlbums } from '../../api/audiodb.js';
 
 
 import Button from '../Button/button.js';
@@ -12,11 +13,14 @@ class Content extends Component {
 			value: '',
 			artists: [],
 			isLoading: false,
+			albums: [],
+			isShowAlbums: false,
 		}
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.clean = this.clean.bind(this);
+		this.showAlbums = this.showAlbums.bind(this);
 	}
 
 	getData() {
@@ -30,24 +34,41 @@ class Content extends Component {
 				this.setState({
 					artists: response.data.artists,
 				});
+				
 			})
 			.finally(() => {
 				this.setState({
 					isLoading: false,
 				});
 			});
+
+
+		getAlbums(this.state.value)
+			.then(response => {
+				this.setState({
+					albums: response.data.album,
+				});
+			}) 
+	}
+
+	showAlbums() {
+		this.setState({
+			isShowAlbums: true,
+		});
+
 	}
 
 	clean() {
 		this.setState({
 			value: '',
-		})
+		});
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
 		this.getData();
 		this.clean();
+
 	}
 
 	handleChange(e, val) {
@@ -87,9 +108,24 @@ class Content extends Component {
 						this.state.artists.map(item =>(
 						<div key={item.idArtist} className={styles.sbar}>
 							<img src={item.strArtistBanner} alt={item.strArtist} /> 
-							<p> {item.strBiographyEN}</p>
+							<p> {item.strBiographyEN} </p>
+
+							<Button name="DISCOGRAPHY" onClick ={this.showAlbums} />
+							{
+								this.state.isShowAlbums ? (
+									this.state.albums.map(item =>(
+										<ul>
+											<li> {item.intYearReleased}, <a>{item.strAlbum}</a> </li>
+										</ul>) 
+								)) : null
+							}	
+
 						</div>
-						))
+
+						) ) 
+
+						
+
 					) : (	
 						<div className={styles.sbar}>
 							<p>
@@ -101,6 +137,10 @@ class Content extends Component {
 
 					)
 				}
+							
+
+
+
 			</>
 
 		);
