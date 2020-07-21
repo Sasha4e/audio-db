@@ -12,8 +12,8 @@ class Content extends Component {
 		this.state = {
 			value: '',
 			artists: [],
-			isLoading: false,
 			albums: [],
+			isLoading: false,
 			isShowAlbums: false,
 		}
 
@@ -40,22 +40,28 @@ class Content extends Component {
 				this.setState({
 					isLoading: false,
 				});
+			
 			});
-
 
 		getAlbums(this.state.value)
 			.then(response => {
 				this.setState({
 					albums: response.data.album,
 				});
-			}) 
+			})
+			.finally(() => {
+				this.setState({
+					isLoading: false,
+				});
+			
+			});
+		
 	}
 
 	showAlbums() {
 		this.setState({
 			isShowAlbums: true,
 		});
-
 	}
 
 	clean() {
@@ -93,33 +99,25 @@ class Content extends Component {
 				>
 						</input>
 						<Button isDisabled={this.state.isLoading} name="SEARCH" onClick ={this.handleSubmit} />
+
+
 				</form>
 				{
 					this.state.isLoading ? (
 						<div className={styles.lbar}>
 							<img src="https://control.ua/image/spinwin/loader.gif" alt="Loading..."></img>
 						</div>)
-						: 
-					null
+					: 
+						null
 				}
-
+				
 				{
 					this.state.artists ? (
 						this.state.artists.map(item =>(
 						<div key={item.idArtist} className={styles.sbar}>
 							<img src={item.strArtistBanner} alt={item.strArtist} /> 
 							<p> {item.strBiographyEN} </p>
-
-							<Button name="DISCOGRAPHY" onClick ={this.showAlbums} />
-							{
-								this.state.isShowAlbums ? (
-									this.state.albums.map(item =>(
-										<ul>
-											<li> {item.intYearReleased}, <a>{item.strAlbum}</a> </li>
-										</ul>) 
-								)) : null
-							}	
-
+							<Button isDisabled={this.state.isLoading} name="DISCOGRAPHY" onClick ={()=> console.log('click')} />
 						</div>
 
 						) ) 
@@ -134,13 +132,22 @@ class Content extends Component {
 							</p>
 							
 						</div>
-
-					)
+						)
 				}
-							
-
-
-
+				
+				
+				{
+					this.state.isShowAlbums ? (
+						this.state.albums.map(item =>(
+							<ul key={item.idAlbum}>
+								<li> {item.intYearReleased}, <a>{item.strAlbum}</a> </li>
+							</ul>) 
+						)
+					)
+							:	null
+				}	
+				
+						
 			</>
 
 		);
