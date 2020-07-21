@@ -46,7 +46,7 @@ class Content extends Component {
 		getAlbums(this.state.value)
 			.then(response => {
 				this.setState({
-					albums: response.data.album,
+					albums: response.data.album.sort((a1, a2) => parseInt(a1.intYearReleased) - parseInt(a2.intYearReleased)),
 				});
 			})
 			.finally(() => {
@@ -60,7 +60,7 @@ class Content extends Component {
 
 	showAlbums() {
 		this.setState({
-			isShowAlbums: true,
+			isShowAlbums: !this.state.isShowAlbums,
 		});
 	}
 
@@ -72,9 +72,10 @@ class Content extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.getData();
-		this.clean();
-
+		if (this.state.value) {
+			this.getData();
+			this.clean();
+		}
 	}
 
 	handleChange(e, val) {
@@ -106,9 +107,8 @@ class Content extends Component {
 					this.state.isLoading ? (
 						<div className={styles.lbar}>
 							<img src="https://control.ua/image/spinwin/loader.gif" alt="Loading..."></img>
-						</div>)
-					: 
-						null
+						</div>
+					) : null
 				}
 				
 				{
@@ -117,7 +117,7 @@ class Content extends Component {
 						<div key={item.idArtist} className={styles.sbar}>
 							<img src={item.strArtistBanner} alt={item.strArtist} /> 
 							<p> {item.strBiographyEN} </p>
-							<Button isDisabled={this.state.isLoading} name="DISCOGRAPHY" onClick ={()=> console.log('click')} />
+							<Button isDisabled={this.state.isLoading} name="DISCOGRAPHY" onClick ={this.showAlbums} />
 						</div>
 
 						) ) 
@@ -143,8 +143,7 @@ class Content extends Component {
 								<li> {item.intYearReleased}, <a>{item.strAlbum}</a> </li>
 							</ul>) 
 						)
-					)
-							:	null
+					)	:	null
 				}	
 				
 						
