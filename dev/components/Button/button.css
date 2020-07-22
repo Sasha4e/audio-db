@@ -9,9 +9,28 @@
     border: none;
 }
 
+.small {
+	color: white;
+	margin: 0 auto;
+	background: none;
+    left: 25%;
+    border: none;
+}
+
+.small:hover {
+	color: grey;
+	cursor: pointer;
+}
+
+.small:focus { 
+ 	outline: none;
+ 	
+}
+
 .btn:disabled {
 	background: #3328E2;
 	color: darkgrey;
+	
 }
 
 .btn:focus { 

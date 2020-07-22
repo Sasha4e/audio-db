@@ -25,7 +25,9 @@
 }
 
 .sbar p {
+	
 	text-align: center;
+	margin : 10px 20px;
 }
 
 .sbar h2 {

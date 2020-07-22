@@ -140,7 +140,7 @@ class Content extends Component {
 					this.state.isShowAlbums ? (
 						this.state.albums.map(item =>(
 							<ul key={item.idAlbum}>
-								<li> {item.intYearReleased}, <a>{item.strAlbum}</a> </li>
+								<li> {item.intYearReleased}, <Button name={item.strAlbum} theme='small'/> </li>
 							</ul>) 
 						)
 					)	:	null
