@@ -18,7 +18,7 @@
 }
 
 .small:hover {
-	color: grey;
+	font-weight: bold;
 	cursor: pointer;
 }
 

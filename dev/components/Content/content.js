@@ -3,8 +3,9 @@ import styles from './content.css';
 import { getArtist } from '../../api/audiodb.js';
 import { getAlbums } from '../../api/audiodb.js';
 
-
+import Albums from '../Albums/Albums.js';
 import Button from '../Button/button.js';
+import Tracks from '../Tracks/Tracks.js';
 
 class Content extends Component {
 	constructor() {
@@ -15,12 +16,14 @@ class Content extends Component {
 			albums: [],
 			isLoading: false,
 			isShowAlbums: false,
+			isShowTracks: false,
 		}
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.clean = this.clean.bind(this);
 		this.showAlbums = this.showAlbums.bind(this);
+		this.showTracks = this.showTracks.bind(this);
 	}
 
 	getData() {
@@ -46,7 +49,8 @@ class Content extends Component {
 		getAlbums(this.state.value)
 			.then(response => {
 				this.setState({
-					albums: response.data.album.sort((a1, a2) => parseInt(a1.intYearReleased) - parseInt(a2.intYearReleased)),
+					albums: response.data.album.sort((a1, a2) =>
+					parseInt(a1.intYearReleased) - parseInt(a2.intYearReleased)),
 				});
 			})
 			.finally(() => {
@@ -56,6 +60,12 @@ class Content extends Component {
 			
 			});
 		
+	}
+
+	showTracks() {
+		this.setState({
+			isShowTracks: !this.state.isShowTracks,
+		});
 	}
 
 	showAlbums() {
@@ -117,7 +127,9 @@ class Content extends Component {
 						<div key={item.idArtist} className={styles.sbar}>
 							<img src={item.strArtistBanner} alt={item.strArtist} /> 
 							<p> {item.strBiographyEN} </p>
-							<Button isDisabled={this.state.isLoading} name="DISCOGRAPHY" onClick ={this.showAlbums} />
+							<Button isDisabled={this.state.isLoading} name="DISCOGRAPHY"
+								onClick ={this.showAlbums} />
+
 						</div>
 
 						) ) 
@@ -139,10 +151,10 @@ class Content extends Component {
 				{
 					this.state.isShowAlbums ? (
 						this.state.albums.map(item =>(
-							<ul key={item.idAlbum}>
-								<li> {item.intYearReleased}, <Button name={item.strAlbum} theme='small'/> </li>
-							</ul>) 
-						)
+							<Albums onClick={this.showTracks} strAlbum={item.strAlbum}
+								key={item.idAlbum} intYearReleased={item.intYearReleased}
+								isShowTracks={this.state.isShowTracks} />
+						))
 					)	:	null
 				}	
 				
