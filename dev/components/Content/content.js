@@ -5,7 +5,7 @@ import { getAlbums } from '../../api/audiodb.js';
 
 import Albums from '../Albums/Albums.js';
 import Button from '../Button/button.js';
-import Tracks from '../Tracks/Tracks.js';
+
 
 class Content extends Component {
 	constructor() {
@@ -109,7 +109,11 @@ class Content extends Component {
 							onChange = {(e) => this.handleChange (e, 'value')}
 				>
 						</input>
-						<Button isDisabled={this.state.isLoading} name="SEARCH" onClick ={this.handleSubmit} />
+						<Button
+							isDisabled={this.state.isLoading}
+							name="SEARCH"
+							onClick ={this.handleSubmit}
+						/>
 
 
 				</form>
@@ -124,26 +128,25 @@ class Content extends Component {
 				{
 					this.state.artists ? (
 						this.state.artists.map(item =>(
-						<div key={item.idArtist} className={styles.sbar}>
+						<div key={item.idArtist}
+							className={styles.sbar}>
 							<img src={item.strArtistBanner} alt={item.strArtist} /> 
 							<p> {item.strBiographyEN} </p>
-							<Button isDisabled={this.state.isLoading} name="DISCOGRAPHY"
-								onClick ={this.showAlbums} />
-
+							<Button
+								isDisabled={this.state.isLoading}
+								name="DISCOGRAPHY"
+								onClick ={this.showAlbums}
+							/>
 						</div>
 
 						) ) 
-
-						
-
 					) : (	
-						<div className={styles.sbar}>
-							<p>
-								Sorry, we can't found your artist<br></br>
-								please try again
-							</p>
-							
-						</div>
+							<div className={styles.sbar}>
+								<p>
+									Sorry, we can't found your artist<br></br>
+									please try again
+								</p>
+							</div>
 						)
 				}
 				
@@ -151,11 +154,15 @@ class Content extends Component {
 				{
 					this.state.isShowAlbums ? (
 						this.state.albums.map(item =>(
-							<Albums onClick={this.showTracks} strAlbum={item.strAlbum}
-								key={item.idAlbum} intYearReleased={item.intYearReleased}
-								isShowTracks={this.state.isShowTracks} />
+							<Albums 
+								onClick={this.showTracks}
+								strAlbum={item.strAlbum}
+								key={item.idAlbum}
+								intYearReleased={item.intYearReleased}
+								isShowTracks={this.state.isShowTracks}
+							/>
 						))
-					)	:	null
+					) : null
 				}	
 				
 						
