@@ -5,9 +5,6 @@ class Button extends Component {
 
 	render(props) {
 		let cls = styles.btn;
-		/*if (this.props.theme == 'small'){
-			cls = styles.small;
-		}*/
 		switch (this.props.theme){
 			case 'small':
 			cls = styles.small;

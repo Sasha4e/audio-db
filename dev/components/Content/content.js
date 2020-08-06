@@ -16,20 +16,22 @@ class Content extends Component {
 			albums: [],
 			isLoading: false,
 			isShowAlbums: false,
-			isShowTracks: false,
+
 		}
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.clean = this.clean.bind(this);
 		this.showAlbums = this.showAlbums.bind(this);
-		this.showTracks = this.showTracks.bind(this);
+	
 	}
 
 	getData() {
+
 		this.setState({
 			artists: [],
 			isLoading: true,
+			isShowAlbums: false,
 		});
 		
 		getArtist(this.state.value)
@@ -62,11 +64,6 @@ class Content extends Component {
 		
 	}
 
-	showTracks() {
-		this.setState({
-			isShowTracks: !this.state.isShowTracks,
-		});
-	}
 
 	showAlbums() {
 		this.setState({
