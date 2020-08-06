@@ -13,7 +13,7 @@ class Tracks extends Component {
 	}
 
 	getData() {
-		console.log(this.props.id);
+		console.log(this.props);
 		// getTracks(this.props.id)
 		// 	.then(response => {
 		// 		this.setState({

@@ -6,7 +6,7 @@ import Tracks from '../Tracks/Tracks.js'
 
 
 class Albums extends Component {
-	constructor (){
+	constructor (props){
 		super();
 
 	}
@@ -14,7 +14,7 @@ class Albums extends Component {
 		return(
 			<ul key={this.props.idAlbum}>
 				<li>
-					{`${this.props.intYearReleased} -`} 
+					{`${this.props.intYearReleased} :`} 
 					<Button name={this.props.strAlbum}
 						theme='small'
 						onClick={this.props.onClick}
