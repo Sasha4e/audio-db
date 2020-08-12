@@ -7,12 +7,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
 	entry: './dev/script.js',
 	output: {
-		path: path.resolve(__dirname, 'site'),
+		path: path.resolve(__dirname, 'docs'),
 		filename: 'bundle.js'
 	},
 	mode: 'development',
 	devServer: {
-		contentBase: path.resolve(__dirname, 'site'),
+		contentBase: path.resolve(__dirname, 'docs'),
 		host: 'localhost',
 		port: 9090,
 	},
@@ -59,7 +59,7 @@ module.exports = {
       //  new CopyWebpackPlugin([
 	     //   	{
 		    //    	from: path.resolve('./dev/static'),
-		    //    	to: path.resolve('./site')
+		    //    	to: path.resolve('./docs')
 		    // }
       //  	]),
       

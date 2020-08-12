@@ -1,0 +1,139 @@
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    font: 16px/22px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+    margin: 0;
+
+    color: #fff;
+    background-image: url('/images/wall.jpg');
+}
+
+
+.box--2kRQu {
+	max-width: 900px;
+    margin: 40px auto;
+    border: white 2px solid;
+    padding-bottom: 50px;
+}
+
+
+.title--pXSlX {
+	text-align: center;
+	border-bottom: white 2px solid;
+}
+
+h1 {
+	background-color: #120A8F;
+	height: 100px;
+	padding-top: 40px;
+	margin: auto auto;
+    
+}
+.sbar--1wZj7 input{
+	display: block;
+	width: 50%;
+	height: 30px;
+	margin: 40px auto;
+	border: 1px solid #cecece;
+	background: #E9E8E8;
+	border-radius: 8px;
+    left: 25%;
+    border: white 2px solid;
+}
+ .sbar--1wZj7 input:focus { 
+ 	outline: none;
+ 	background: #F6F6f6;
+ 	border: 2px solid #DBD7D2;
+}
+
+
+  
+.sbar--1wZj7 img {
+	display: block;
+	max-width: 850px;
+	margin: 40px auto;
+	border: white 2px solid;
+}
+
+.sbar--1wZj7 p {
+	
+	text-align: center;
+	margin : 10px 20px;
+}
+
+.sbar--1wZj7 h2 {
+	display: block;
+	margin: 40px auto;
+	cursor: pointer;
+	padding-top: 40px;
+	text-align: center;
+	
+	font-weight: 800;
+	text-decoration: underline;
+}
+
+.sbar--1wZj7 a:hover {
+	color: #120A8F;
+}
+
+.lbar--oqKfh img {
+	display: block;
+	max-width: 50px;
+	margin: 40px auto;
+	
+}
+
+.lbar--oqKfh p {
+	text-align: center;
+}
+
+
+.btn--2UU1_ {
+	color: white;
+	width: 130px;
+	height: 40px;
+	display: block;
+	margin: 0 auto;
+	background: #120A8F;
+    left: 25%;
+    border: none;
+}
+
+.small--35BuL {
+	color: white;
+	margin: 0 auto;
+	background: none;
+    left: 25%;
+    border: none;
+}
+
+.small--35BuL:hover {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.small--35BuL:focus { 
+ 	outline: none;
+ 	
+}
+
+.btn--2UU1_:disabled {
+	background: #3328E2;
+	color: darkgrey;
+	
+}
+
+.btn--2UU1_:focus { 
+ 	outline: none;
+ 	
+}
+
+.btn--2UU1_:active {
+	background: #0141F9;
+	
+}
