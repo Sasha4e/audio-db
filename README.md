@@ -18,4 +18,4 @@ cd audio-db
 npm install
 npm run dev
 ```
-Go to http://localhost:9090/ and be sure that app is running.
+Go to http://localhost:9090/ and be sure that app is running
