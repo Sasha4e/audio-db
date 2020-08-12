@@ -9,6 +9,7 @@ https://sasha4e.github.io/audio-db to run app
 3. Webpack 4.43.0
 5. Babel 7.9.6
 6. CSS-loader 3.5.3
+
 https://www.theaudiodb.com/ API
 
 ## How to run app locally
