@@ -8,7 +8,6 @@ https://sasha4e.github.io/audio-db to run app
 1. React 16.13.1
 3. Webpack 4.43.0
 5. Babel 7.9.6
-6. CSS-loader 3.5.3
 
 API: https://www.theaudiodb.com/
 
